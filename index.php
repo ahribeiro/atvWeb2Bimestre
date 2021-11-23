@@ -24,7 +24,8 @@ use \Controller\ModaltesteController;
 use \Controller\PratosController;
 
 use \Controller\ComposicaoController;
-
+use Controller\EncomendasController;
+use Controller\ItensEncomendaController;
 
 // ROTEADOR -------------------------------------------------------
 if( strtolower($modulo) == 'home' ) {
@@ -256,7 +257,68 @@ elseif( strtolower($modulo) == 'composicao' ) {
 
 } // if modulo composicao
 
+else if(strtolower($modulo) == 'encomenda') {
 
+	$ctrl = new EncomendasController();
+
+	switch (strtolower($acao)) {
+		case "listar" : 
+	    	$ctrl->Listar("");
+	    	break;
+
+	    case "excluir" : 
+	    	$ctrl->Excluir(@$_GET['num_encomenda']);
+	    	break;
+
+	    case "incluindo" : 
+	    	$ctrl->Formulario('');
+	    	break;
+
+	    case "incluir" : 
+	    	$ctrl->Incluir();
+	    	break;
+
+	    case "alterando" : 
+	    	$ctrl->Formulario(@$_GET['num_encomenda']);
+	    	break;
+
+	    case "alterar" : 
+	    	$ctrl->Alterar();
+	    	break;
+
+	    case "ver-duplic" : 
+	    	$ctrl->VerDuplicidade($_POST);
+	    	break;
+
+	    default: 
+	    	$ctrl->Listar("");
+	    	break;
+	}
+}
+
+else if(strtolower($modulo) == 'itensencomenda') {
+
+	$ctrl = new ItensEncomendaController();
+
+	switch( strtolower($acao) )  {
+
+	    case "form" : 
+	    	$ctrl->Form();
+	    	break;
+
+	    case "listar" : 
+	    	$ctrl->Listar($_POST['cod_item_encomenda']);
+	    	break;
+
+	    case "incluir" : 
+	    	$ctrl->Incluir($_POST);
+	    	break;
+
+	    case "excluir" : 
+	    	$ctrl->Excluir($_POST['cod_item_encomenda'], $_POST['num_encomenda'], $_POST['cod_prato']);
+	    	break;
+	}
+}
 
 /*
 //----------------------------------------------------------------

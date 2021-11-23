@@ -23,7 +23,7 @@
                   <a class="dropdown-item" href="index.php?modulo=categorias">Categorias</a>
                   <a class="dropdown-item" href="index.php?modulo=pratos">Pratos</a>
                   <a class="dropdown-item" href="#">Compras</a>
-                  <a class="dropdown-item" href="#">Encomendas</a>
+                  <a class="dropdown-item" href="index.php?modulo=encomenda">Encomendas</a>
                   <a class="dropdown-item" href="index.php?modulo=logout">Sair (<?php echo $_SESSION['usuario']['login'] ?>)</a>
                 </div>
               </li>

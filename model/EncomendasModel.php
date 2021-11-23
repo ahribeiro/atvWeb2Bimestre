@@ -25,7 +25,7 @@
         public function Get_lista($pesquisa) {
             $sql = "select e.*, c.nome
                     from ENCOMENDAS e
-                    left outer join CLIENTES C on (e.cod_cliente = c.codcliente)
+                    left outer join CLIENTES C on (e.cod_cliente = c.cod_cliente)
                     where c.nome like '%$pesquisa%' 
                     order by e.num_encomenda";
             return $this->pdo->query($sql);
