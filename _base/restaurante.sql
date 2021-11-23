@@ -1,6 +1,6 @@
-create database restaurante_simulado;
+create database restaurante2021;
 
-use restaurante_simulado;
+use restaurante2021;
 
 create table cidades (
 	cod_cidade int not null auto_increment primary key,
